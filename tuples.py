@@ -1,32 +1,31 @@
-"""Functions to help Azara and Rui locate pirate treasure."""
 
 
-def get_coordinate(record):
-    """Return coordinate value from a tuple containing the treasure name, and treasure coordinate.
+def get_coordinate(treasure):
+    return treasure[1]
+    
+    #algo de hacer una lista 
+    #lugares= [1F, 5B, 3D, 4B, 8C, 6A, 6D, 8A, 7F, 1C, 2A, 4E, 7E]
 
-    :param record: tuple - with a (treasure, coordinate) pair.
-    :return: str - the extracted map coordinate.
-    """
+    #me debe devolver una tupla
 
-    return ""
 
 
 def convert_coordinate(coordinate):
-    """Split the given coordinate into tuple containing its individual components.
-
-    :param coordinate: str - a string map coordinate
-    :return: tuple - the string coordinate split into its individual components.
-    """
-
-    return ()
+    bibop=coordinate[0]
+    bibup=coordinate[1]
+   
+    muestro=tuple(f"{bibop}{bibup}")
+    return muestro
 
 
 def create_record(azara_record, rui_record):
-    """Combine the two record types (if possible) and create a combined record group.
-
-    :param azara_record: tuple - a (treasure, coordinate) pair.
-    :param rui_record: tuple - a (location, coordinate, quadrant) trio.
-    :return: tuple or str - the combined record (if compatible), or the string "not a match" (if incompatible).
-    """
-
-    return ()
+    virulinda = str(rui_record[1][0])
+    virulana = rui_record[1][1]
+    fiufiu = virulinda + virulana
+    comecoco= tuple(azara_record[:] + rui_record[:])
+    if azara_record[1]==fiufiu:
+            return comecoco
+    #reate_record(('Brass Spyglass', '4B'), ('Abandoned Lighthouse', ('4', 'B'), 'Blue'))
+#('Brass Spyglass', '4B', 'Abandoned Lighthouse', ('4', 'B'), 'Blue')
+    else:
+        return "not a match"
